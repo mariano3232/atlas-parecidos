@@ -19,13 +19,13 @@ export function OpinionSection({ variant }: OpinionSectionProps) {
     <Section id="opiniones" className={classes.section} fullHeight={false}>
       <div className="relative px-6 py-10 md:px-12 md:py-14">
         <motion.div
-          className="sticky top-5 z-20 mb-10 flex flex-col gap-6"
+          className="fixed top-5 z-20 mb-10 flex flex-col gap-6"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.15, ease }}
         >
           <OpinionBackButton />
-          <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+          <div className="flex flex-col gap-6">
             <DisplayText size="lg" className="max-w-md text-ink">
               No todos opinamos lo mismo
             </DisplayText>
@@ -58,19 +58,21 @@ export function OpinionSection({ variant }: OpinionSectionProps) {
               }}
             >
               <div
-                className={`overflow-hidden border max-w-lg border-ink shadow-[4px_4px_0_#141313] ${classes.card}`}
+                className={`overflow-hidden border w-xl h-[800px] border-ink ${classes.card}`}
                 style={{ transform: `rotate(${opinion.rotation ?? 0}deg)` }}
               >
                 <img
                   src={imageSources[opinion.imageId]}
                   alt=""
-                  className="w-full object-cover"
+                  className="w-full object-cover h-[600px]"
                 />
-                <div className="max-w-2xl text-center mt-6 mx-4">
-                  <DisplayText size="md" uppercase={false} className="mb-4 normal-case">
+                <div className="text-center bg-blue mt-6">
+                  <DisplayText size="md" uppercase={false} className="mb-4 w-[90%] mx-auto normal-case">
                     “{opinion.quote}”
                   </DisplayText>
-                  <p className="font-[CustomFont] text-xl text-ink md:text-2xl">-{opinion.author}</p>
+                </div>
+                <div className='w-[85%] mx-auto'>
+                  <p className="font-[CustomFont] text-3xl text-ink mx-auto ">-{opinion.author}</p>
                 </div>
               </div>
             </motion.article>

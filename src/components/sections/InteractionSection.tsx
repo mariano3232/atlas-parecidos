@@ -133,7 +133,7 @@ export function InteractionSection() {
           </div>
           
         </div>
-        <p className="fixed bottom-20 right-35 z-10 max-w-xs font-[CustomFont] leading-relaxed text-ink md:text-lg">
+        <p className="fixed bottom-20 right-55 z-10 w-[250px] text-2xl font-[CustomFont] leading-relaxed text-ink">
           Conectá (●) dos imágenes que compartan algo.
         </p> 
 
@@ -144,7 +144,13 @@ export function InteractionSection() {
           >
           <div ref={gridRef} className='relative grid grid-cols-4 grid-rows-9 h-[2100px] w-[70%] m-auto gap-5'>
             {linePoints && (
-              <ConnectionLine from={linePoints.from} to={linePoints.to} showEndpoints={false} />
+              <ConnectionLine from={linePoints.from} to={linePoints.to}  showEndpoints={false}
+                side={
+                  selectedPoints[0]==1 && selectedPoints[1]==3 ||
+                  selectedPoints[0]==5 && selectedPoints[1]==8 ||
+                  selectedPoints[0]==2 && selectedPoints[1]==3 ? -1 : 1
+                }
+              />
             )}
             <div/>
             <div/>

@@ -5,7 +5,7 @@ type ScrollHintProps = {
 
 export function ScrollHint({ hint, className = '' }: ScrollHintProps) {
   return (
-    <p className={`font-[CustomFont] text-[clamp(1.5rem,3vw,3.9rem)] text-ink ${className}`}>
+    <p className={`font-[CustomFont] text-6xl  text-ink ${className}`}>
       {hint}
     </p>
   )

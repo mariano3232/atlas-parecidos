@@ -1,7 +1,11 @@
-import { useEffect, type ReactNode } from 'react'
+import { useEffect, useLayoutEffect, type ReactNode } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { useLocation } from 'react-router-dom'
 import { useNavigationTransition } from './NavigationTransitionContext'
+
+function scrollToTop() {
+  window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+}
 
 type PageTransitionProps = {
   children: ReactNode
@@ -12,8 +16,11 @@ export function PageTransition({ children }: PageTransitionProps) {
   const { setOverlayColor } = useNavigationTransition()
   const seamless = Boolean((location.state as { seamless?: boolean } | null)?.seamless)
 
+  useLayoutEffect(() => {
+    scrollToTop()
+  }, [location.pathname])
+
   useEffect(() => {
-    window.scrollTo(0, 0)
     if (seamless) {
       const clearTimer = window.setTimeout(() => setOverlayColor(null), 300)
       return () => window.clearTimeout(clearTimer)
