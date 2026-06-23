@@ -1,42 +1,81 @@
+import { motion } from 'motion/react'
 import { Section } from '../layout/Section'
 import { DisplayText } from '../layout/DisplayText'
 import { ScrollHint } from '../layout/ScrollHint'
-import { opinions } from '../../data/opinions'
+import { OpinionBackButton } from '../layout/OpinionBackButton'
+import { getOpinionSet, type OpinionVariant } from '../../data/opinions'
 import { imageSources } from '../../data/images'
 
-export function OpinionSection() {
-  return (
-    <Section id="opiniones" className="bg-opinion-red" fullHeight={false}>
-      <div className="relative px-6 py-10 md:px-12 md:py-14">
-        <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
-          <DisplayText size="lg" className="max-w-md text-ink">
-            No todos opinamos lo mismo
-          </DisplayText>
-          <ScrollHint hint="(↓↓↓)" />
-        </div>
+const ease = [0.22, 1, 0.36, 1] as const
 
-        <div className="mx-auto flex max-w-3xl flex-col gap-24 pb-16">
+type OpinionSectionProps = {
+  variant: OpinionVariant
+}
+
+export function OpinionSection({ variant }: OpinionSectionProps) {
+  const { opinions, classes } = getOpinionSet(variant)
+
+  return (
+    <Section id="opiniones" className={classes.section} fullHeight={false}>
+      <div className="relative px-6 py-10 md:px-12 md:py-14">
+        <motion.div
+          className="sticky top-5 z-20 mb-10 flex flex-col gap-6"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.15, ease }}
+        >
+          <OpinionBackButton />
+          <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+            <DisplayText size="lg" className="max-w-md text-ink">
+              No todos opinamos lo mismo
+            </DisplayText>
+            <ScrollHint hint="(↓↓↓)" />
+          </div>
+        </motion.div>
+
+        <motion.div
+          className="mx-auto flex max-w-3xl flex-col gap-24 pb-16"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: {},
+            visible: {
+              transition: { staggerChildren: 0.12, delayChildren: 0.3 },
+            },
+          }}
+        >
           {opinions.map((opinion) => (
-            <article key={opinion.id} className="flex flex-col items-center gap-8">
+            <motion.article
+              key={opinion.id}
+              className="flex flex-col items-center gap-8"
+              variants={{
+                hidden: { opacity: 0, y: 28 },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  transition: { duration: 0.55, ease },
+                },
+              }}
+            >
               <div
-                className="overflow-hidden border border-ink bg-opinion-red shadow-[4px_4px_0_#141313]"
+                className={`overflow-hidden border max-w-xl border-ink shadow-[4px_4px_0_#141313] ${classes.card}`}
                 style={{ transform: `rotate(${opinion.rotation ?? 0}deg)` }}
               >
                 <img
                   src={imageSources[opinion.imageId]}
                   alt=""
-                  className="h-[18rem] w-[14rem] object-cover sm:h-[24rem] sm:w-[18rem] md:h-[28rem] md:w-[22rem]"
+                  className="w-full object-cover"
                 />
+                <div className="max-w-2xl text-center mt-6 mx-4">
+                  <DisplayText size="md" uppercase={false} className="mb-4 normal-case">
+                    “{opinion.quote}”
+                  </DisplayText>
+                  <p className="font-[CustomFont] text-xl text-ink md:text-2xl">-{opinion.author}</p>
+                </div>
               </div>
-              <div className="max-w-2xl text-center">
-                <DisplayText size="md" uppercase={false} className="mb-4 normal-case">
-                  “{opinion.quote}”
-                </DisplayText>
-                <p className="font-display text-xl text-ink md:text-2xl">-{opinion.author}</p>
-              </div>
-            </article>
+            </motion.article>
           ))}
-        </div>
+        </motion.div>
       </div>
     </Section>
   )

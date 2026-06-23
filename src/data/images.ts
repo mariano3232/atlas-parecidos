@@ -14,7 +14,8 @@ export type PhotoPlacement = {
 const base = '/assets/images'
 
 export const imageSources: Record<string, string> = {
-  'hero-twins': `${base}/hero-twins.jpeg`,
+  // 'hero-twins': `${base}/hero-twins.jpeg`,
+  'hero-twins': `${base}/main.png`,
   'atlas-familiar': `${base}/atlas2.png`,
   'parecidos': `${base}/parecidos.png`,
   'img-0518': `${base}/img-0518.jpeg`,
@@ -67,6 +68,15 @@ export const imageSources: Record<string, string> = {
   'opinion-2': `${base}/opinion-2.jpeg`,
   'opinion-3': `${base}/opinion-3.jpeg`,
   'opinion-4': `${base}/opinion-4.jpeg`,
+  'Opinion2-1': `${base}/Opinion2-1.png`,
+  'Opinion2-2': `${base}/Opinion2-2.png`,
+  'Opinion2-3': `${base}/Opinion2-3.png`,
+  'Opinion3-1': `${base}/Opinion3-1.png`,
+  'Opinion3-2': `${base}/Opinion3-2.png`,
+  'Opinion3-3': `${base}/Opinion3-3.png`,
+  'Opinion4-1': `${base}/Opinion4-1.png`,
+  'Opinion4-2': `${base}/Opinion4-2.png`,
+  'Opinion4-3': `${base}/Opinion4-3.png`,
   '04': `${base}/04.jpg`,
   '05': `${base}/05.jpg`,
 }
