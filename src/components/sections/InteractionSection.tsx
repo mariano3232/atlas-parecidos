@@ -3,7 +3,8 @@ import { DisplayText } from '../layout/DisplayText'
 import { ScrollHint } from '../layout/ScrollHint'
 import { imageSources } from '../../data/images'
 import InteractImage from '../interaction/InteractImage'
-import { useEffect, useRef, useState } from 'react'
+import { ConnectionLine } from '../interaction/ConnectionLine'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { InteractionContext } from '../interaction/InteractContext'
 import { useNavigationTransition } from '../layout/NavigationTransitionContext'
@@ -32,7 +33,52 @@ export function InteractionSection() {
   const { setOverlayColor } = useNavigationTransition()
   const [connectionFound, setConnectionFound] = useState(false)
   const [selectedPoints, setSelectedPoints] = useState([0, 0])
+  const [linePoints, setLinePoints] = useState<{ from: { x: number; y: number }; to: { x: number; y: number } } | null>(null)
   const navigationStarted = useRef(false)
+  const gridRef = useRef<HTMLDivElement>(null)
+  const pointRefs = useRef<Map<number, HTMLDivElement>>(new Map())
+
+  const registerPointRef = useCallback((id: number, el: HTMLDivElement | null) => {
+    if (el) pointRefs.current.set(id, el)
+    else pointRefs.current.delete(id)
+  }, [])
+
+  useEffect(() => {
+    if (!connectionFound || selectedPoints[0] === 0 || selectedPoints[1] === 0) {
+      setLinePoints(null)
+      return
+    }
+
+    const updateLinePoints = () => {
+      const container = gridRef.current
+      const fromEl = pointRefs.current.get(selectedPoints[0])
+      const toEl = pointRefs.current.get(selectedPoints[1])
+
+      if (!container || !fromEl || !toEl) {
+        setLinePoints(null)
+        return
+      }
+
+      const containerRect = container.getBoundingClientRect()
+      const fromRect = fromEl.getBoundingClientRect()
+      const toRect = toEl.getBoundingClientRect()
+
+      setLinePoints({
+        from: {
+          x: fromRect.left + fromRect.width / 2 - containerRect.left,
+          y: fromRect.top + fromRect.height / 2 - containerRect.top,
+        },
+        to: {
+          x: toRect.left + toRect.width / 2 - containerRect.left,
+          y: toRect.top + toRect.height / 2 - containerRect.top,
+        },
+      })
+    }
+
+    updateLinePoints()
+    window.addEventListener('resize', updateLinePoints)
+    return () => window.removeEventListener('resize', updateLinePoints)
+  }, [connectionFound, selectedPoints])
 
   useEffect(() => {
     const connectionFoundAux = pointCombinations.some((combination) =>
@@ -71,32 +117,35 @@ export function InteractionSection() {
   return (
     <Section id="interaccion" className="bg-cream">
       <div className="relative flex h-full min-h-screen flex-col px-6 py-8 md:px-10">
-        <div className='sticky top-5 z-11'>
-          <div className="mb-4 flex items-start justify-between gap-6">
+        <div className='fixed top-5 z-11'>
+          <div className="mb-4 flex flex-col gap-30 items-start justify-between gap-6">
+            <Link
+              to="/"
+              className="inline-block w-fit border border-ink px-4 py-2 font-[CustomFont] text-lg text-ink shadow-[3px_3px_0_#141313] transition hover:translate-x-px hover:translate-y-px hover:shadow-[2px_2px_0_#141313]"
+            >
+              ← Volver
+            </Link>
             <DisplayText size="lg" className="max-w-xl">
               ¿Qué ves?
             </DisplayText>
             <ScrollHint hint="(↓↓↓)" className="hidden md:block" />
+            
           </div>
-
-          <p className="mb-4 max-w-xs font-[CustomFont] text-sm leading-relaxed text-ink md:text-lg">
-            Conectá (●) dos imágenes que compartan algo.
-          </p>
-          <Link
-            to="/"
-            className="inline-block w-fit border border-ink px-4 py-2 font-[CustomFont] text-lg text-ink shadow-[3px_3px_0_#141313] transition hover:translate-x-px hover:translate-y-px hover:shadow-[2px_2px_0_#141313]"
-          >
-            ← Volver
-          </Link>
+          
         </div>
-        
+        <p className="fixed bottom-20 right-35 z-10 max-w-xs font-[CustomFont] leading-relaxed text-ink md:text-lg">
+          Conectá (●) dos imágenes que compartan algo.
+        </p> 
 
         <div className="relative min-h-0 flex-1">
           {/* <img src={imageSources['parecidos']} alt="" className='w-[70%] m-auto' /> */}
           <InteractionContext.Provider
-            value={{ selectedPoints, setSelectedPoints, connectionFound }}
+            value={{ selectedPoints, setSelectedPoints, connectionFound, registerPointRef }}
           >
-          <div className='grid grid-cols-4 grid-rows-9 h-[2100px] w-[70%] m-auto gap-5'>
+          <div ref={gridRef} className='relative grid grid-cols-4 grid-rows-9 h-[2100px] w-[70%] m-auto gap-5'>
+            {linePoints && (
+              <ConnectionLine from={linePoints.from} to={linePoints.to} showEndpoints={false} />
+            )}
             <div/>
             <div/>
             <InteractImage src={imageSources['gallery-03-2']} size={2} pointId={1} pointPosition='top-[20%] left-[-30px]'  />

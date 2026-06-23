@@ -9,7 +9,7 @@ type ImageProps = {
 
 export default function InteractImage({src, size, pointId, pointPosition}:ImageProps) {
 
-  const { selectedPoints, setSelectedPoints, connectionFound } = useInteraction()
+  const { selectedPoints, setSelectedPoints, connectionFound, registerPointRef } = useInteraction()
 
   const handleClick = () => {
     if (selectedPoints[0] == 0){
@@ -24,14 +24,18 @@ export default function InteractImage({src, size, pointId, pointPosition}:ImageP
 
   let style = size == 2? "col-span-2 row-span-2": "" 
   
-  let selectedStyle = 
-    connectionFound && selectedPoints.includes(pointId) ? " bg-green-500" :
-    selectedPoints.includes(pointId) && selectedPoints[0] !== 0 && selectedPoints[1] !== 0 && !connectionFound? " bg-red-500" :
-    selectedPoints.includes(pointId) ? " bg-black" : ""
+  let selectedStyle =
+    selectedPoints.includes(pointId) && selectedPoints[0] !== 0 && selectedPoints[1] !== 0 && !connectionFound
+      ? ' bg-red-500'
+      : selectedPoints.includes(pointId)
+        ? ' bg-black'
+        : ''
 
   return ( 
     <div className={"relative hover:scale-105 transition duration-300 cursor-pointer " + style}>
-        <div className={
+        <div
+          ref={(el) => registerPointRef(pointId, el)}
+          className={
           "h-16 w-16 absolute rounded-full transition duration-1000 cursor-pointer " + pointPosition + selectedStyle
         }
         />

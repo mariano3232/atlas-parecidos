@@ -5,6 +5,7 @@ type InteractionContextType = {
   selectedPoints: number[]
   setSelectedPoints: React.Dispatch<React.SetStateAction<number[]>>
   connectionFound: boolean
+  registerPointRef: (id: number, el: HTMLDivElement | null) => void
 }
 
 export const InteractionContext = createContext<InteractionContextType | null>(null)

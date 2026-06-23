@@ -58,7 +58,7 @@ export function OpinionSection({ variant }: OpinionSectionProps) {
               }}
             >
               <div
-                className={`overflow-hidden border max-w-xl border-ink shadow-[4px_4px_0_#141313] ${classes.card}`}
+                className={`overflow-hidden border max-w-lg border-ink shadow-[4px_4px_0_#141313] ${classes.card}`}
                 style={{ transform: `rotate(${opinion.rotation ?? 0}deg)` }}
               >
                 <img

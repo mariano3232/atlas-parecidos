@@ -23,6 +23,11 @@ export function HeroSection() {
   })
   const opacity = useTransform(scrollY, [2100, 2300], [1, 0])
   const heroTextColor = useTransform(scrollY, [0, 500], ['#f3eeee', '#141313'])
+  const backgroundColor = useTransform(
+    scrollY,
+    [0, 1500, 3200],
+    ['#F3EEEE', '#D5E2E8', '#FFFFFF'],
+  )
 
   const atlasScale = useTransform(atlasProgress, [0, 1], [0.5, 1], {
     ease: t => 1 - Math.pow(1 - t, 3),
@@ -33,7 +38,12 @@ export function HeroSection() {
   })
 
   return (
-    <Section id="inicio" className="relative bg-[#faf5e6] bg-linear-to-b from-amber-50 to-teal-50">
+    <Section id="inicio" className="relative">
+      <motion.div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 -z-10"
+        style={{ backgroundColor }}
+      />
       <div className='h-[200vh]'>
         <div className="fixed top-0 h-screen flex items-center justify-center">
           <motion.img
@@ -101,7 +111,7 @@ export function HeroSection() {
       
       <div
         ref={atlasRef}
-        className="relative flex h-full min-h-screen flex-col px-6 py-8 md:px-10"
+        className="relative flex h-full min-h-screen flex-col py-8 md:px-10"
         style={{ perspective: '1200px' }}
       >
         
