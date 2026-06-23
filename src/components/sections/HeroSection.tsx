@@ -105,14 +105,14 @@ export function HeroSection() {
         style={{ perspective: '1200px' }}
       >
         
-        <ScrollContainer className="max-h-[800px] flex-1 overflow-x-auto overflow-y-auto hide-scrollbar">
-          <div className="z-10 sticky top-30 left-0 flex items-center justify-between">
+        <ScrollContainer className="max-h-[750px] flex-1 overflow-x-auto overflow-y-auto hide-scrollbar">
+          <div className="z-10 sticky top-30 left-0 flex  justify-between">
             <div className="mb-4 items-start justify-between gap-6">
               <DisplayText size="lg">Atlas Familiar</DisplayText>
               <ScrollHint hint="(↓⇆)" className="hidden md:block relative top-40" />
             </div>
 
-            <p className="mb-6 max-w-xs font-[CustomFont] text-sm leading-relaxed text-ink md:text-xl">
+            <p className="max-w-xs font-[CustomFont] text-sm leading-relaxed text-ink md:text-xl">
               Las semejanzas cambian según quién las mira...
             </p>
           </div>
@@ -128,6 +128,7 @@ export function HeroSection() {
               transformOrigin: 'center center',
             }}
           />
+          <ScrollHint hint="(↓⇆)" className="hidden md:block absolute bottom-10 right-10" />
         </ScrollContainer>
       </div>
 
