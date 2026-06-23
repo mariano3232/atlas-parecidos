@@ -16,20 +16,12 @@ const sizeClasses = {
   sm: 'text-[clamp(0.875rem,1.5vw,1.25rem)] leading-[1.5]',
 }
 
-const variantClasses = {
-  display: 'font-display',
-  serif: 'font-serif',
-  body: 'font-body',
-  custom:''
-}
-
 export function DisplayText({
   children,
   as: Tag = 'p',
   className = '',
   size = 'lg',
   uppercase = true,
-  variant = 'display',
 }: DisplayTextProps) {
   return (
     <Tag
