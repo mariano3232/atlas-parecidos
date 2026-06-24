@@ -30,7 +30,7 @@ export function OpinionSection({ variant }: OpinionSectionProps) {
             <EssayButton />
           </div>
           <div className="flex flex-col gap-12 mt-12">
-            <DisplayText size="lg" className="max-w-[350px] text-ink">
+            <DisplayText size="custom" className="max-w-[350px] text-ink">
               No todos opinamos lo mismo
             </DisplayText>
             <ScrollHint hint="(↓↓↓)" />
