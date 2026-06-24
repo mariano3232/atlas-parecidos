@@ -140,7 +140,7 @@ export function InteractionSection() {
           </div>
           
         </div>
-        <p className="fixed bottom-20 right-55 z-10 w-[250px] text-2xl font-[CustomFont] leading-relaxed text-ink">
+        <p className="fixed bottom-20 right-55 z-10 w-[250px] text-2xl font-[CustomFont] leading-[28px] text-ink">
           Conectá (●) dos imágenes que compartan algo.
         </p> 
 

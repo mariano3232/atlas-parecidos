@@ -122,7 +122,7 @@ export function HeroSection() {
               <ScrollHint hint="(↓⇆)" className="hidden md:block relative top-40" />
             </div>
 
-            <p className="max-w-[250px] font-[CustomFont] text-2xl leading-relaxed text-ink">
+            <p className="max-w-[250px] font-[CustomFont] text-2xl leading-[28px] text-ink">
               Las semejanzas cambian según quién las mira...
             </p>
           </div>
