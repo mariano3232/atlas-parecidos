@@ -29,8 +29,8 @@ export function OpinionSection({ variant }: OpinionSectionProps) {
             <OpinionBackButton />
             <EssayButton />
           </div>
-          <div className="flex flex-col gap-6">
-            <DisplayText size="lg" className="max-w-md text-ink">
+          <div className="flex flex-col gap-12 mt-12">
+            <DisplayText size="lg" className="max-w-[350px] text-ink">
               No todos opinamos lo mismo
             </DisplayText>
             <ScrollHint hint="(↓↓↓)" />
