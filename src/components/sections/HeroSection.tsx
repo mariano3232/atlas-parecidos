@@ -38,7 +38,7 @@ export function HeroSection() {
   })
 
   return (
-    <Section id="inicio" className="relative">
+    <Section id="inicio" className="relative overflow-hidden">
       <motion.div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10"
