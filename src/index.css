@@ -9,7 +9,7 @@
   --font-display: "Silkscreen", monospace;
   --font-serif: "Instrument Serif", Georgia, serif;
   --font-body: "Inter", system-ui, sans-serif;
-  /* --page-min-width: 1285px; */
+  --page-min-width: 1285px;
 }
 
 @font-face {
@@ -23,12 +23,12 @@
 
 html {
   scroll-behavior: smooth;
-  /* min-width: var(--page-min-width); */
+  min-width: var(--page-min-width);
 }
 
 body {
   margin: 0;
-  /* min-width: var(--page-min-width); */
+  min-width: var(--page-min-width);
   min-height: 100vh;
   background-color: var(--color-cream);
   color: var(--color-ink);
@@ -37,7 +37,7 @@ body {
 }
 
 #root {
-  /* min-width: var(--page-min-width); */
+  min-width: var(--page-min-width);
   min-height: 100vh;
 }
 
