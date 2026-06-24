@@ -6,7 +6,6 @@ import { imageSources } from '../../data/images'
 import ScrollContainer from 'react-indiana-drag-scroll'
 import { ScrollHint } from '../layout/ScrollHint'
 import { useNavigate } from 'react-router-dom'
-import EssayButton from '../layout/EssayButton'
 
 export function HeroSection() {
   const navigate = useNavigate()
