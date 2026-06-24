@@ -161,10 +161,10 @@ export function InteractionSection() {
             )}
             <div/>
             <div/>
-            <InteractImage src={imageSources['gallery-03-2']} size={2} pointId={1} pointPosition='top-[20%] left-[-30px]'  />
+            <InteractImage src={imageSources['FOTOWEB']} size={2} pointId={1} pointPosition='top-[20%] left-[-30px]'  />
             <div/>
             <InteractImage src={imageSources['photo-16']} size={1} pointId={2} pointPosition='top-[30%] left-[-30px]'  />
-            <InteractImage src={imageSources['img-0508']} size={2} pointId={3} pointPosition='top-[-40px] left-[10%]'  />
+            <InteractImage src={imageSources['FOTOWEB2']} size={2} pointId={3} pointPosition='top-[-40px] left-[10%]'  />
             <InteractImage src={imageSources['gallery-ce3f']} size={1} pointId={4} pointPosition='top-[30%] right-[-30px]'  />
             <div/>
             <div/>
@@ -177,7 +177,7 @@ export function InteractionSection() {
             <div/>
             <InteractImage src={imageSources['photo-07']} size={2} pointId={7} pointPosition='right-[-40px] top-[45%]'  />
             <div/>
-            <InteractImage src={imageSources['photo-22']} size={1} pointId={8} pointPosition='left-[-40px] top-[35%]'  />
+            <InteractImage src={imageSources['FOTOWEB3']} size={1} pointId={8} pointPosition='left-[-40px] top-[35%]'  />
             <InteractImage src={imageSources['04']} size={2} pointId={9} pointPosition='right-[-40px] top-[70%]'  />
             <InteractImage src={imageSources['05']} size={1} pointId={10} pointPosition='bottom-[-40px] left-[45%]'  />
             <div/>

@@ -14,7 +14,9 @@ export type PhotoPlacement = {
 const base = '/assets/images'
 
 export const imageSources: Record<string, string> = {
-  // 'hero-twins': `${base}/hero-twins.jpeg`,
+  'FOTOWEB': `${base}/FOTOWEB.png`,
+  'FOTOWEB2': `${base}/FOTOWEB2.png`,
+  'FOTOWEB3': `${base}/FOTOWEB3.png`,
   'hero-twins': `${base}/main.png`,
   'atlas-familiar': `${base}/atlas3.png`,
   'parecidos': `${base}/parecidos.png`,
