@@ -5,6 +5,7 @@ import { ScrollHint } from '../layout/ScrollHint'
 import { OpinionBackButton } from '../layout/OpinionBackButton'
 import { getOpinionSet, type OpinionVariant } from '../../data/opinions'
 import { imageSources } from '../../data/images'
+import { EssayButton } from '../layout/EssayButton'
 
 const ease = [0.22, 1, 0.36, 1] as const
 
@@ -24,7 +25,10 @@ export function OpinionSection({ variant }: OpinionSectionProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.15, ease }}
         >
-          <OpinionBackButton />
+          <div className="flex gap-6">
+            <OpinionBackButton />
+            <EssayButton />
+          </div>
           <div className="flex flex-col gap-6">
             <DisplayText size="lg" className="max-w-md text-ink">
               No todos opinamos lo mismo

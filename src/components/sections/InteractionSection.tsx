@@ -8,6 +8,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { InteractionContext } from '../interaction/InteractContext'
 import { useNavigationTransition } from '../layout/NavigationTransitionContext'
+import { EssayButton } from '../layout/EssayButton'
 
 function matchesCombination(selectedPoints: number[], combination: number[]) {
   const [point1, point2] = combination
@@ -121,12 +122,16 @@ export function InteractionSection() {
       <div className="relative flex h-full min-h-screen flex-col px-6 py-8 md:px-10">
         <div className='fixed top-5 z-11'>
           <div className="mb-4 flex flex-col gap-30 items-start justify-between gap-6">
-            <Link
-              to="/"
-              className="inline-block w-fit border border-ink px-4 py-2 font-[CustomFont] text-lg text-ink shadow-[3px_3px_0_#141313] transition hover:translate-x-px hover:translate-y-px hover:shadow-[2px_2px_0_#141313]"
-            >
-              ← Volver
-            </Link>
+            <div className="flex gap-6">
+              <Link
+                to="/"
+                className="inline-block w-fit border border-ink px-4 py-2 font-[CustomFont] text-lg text-ink shadow-[3px_3px_0_#141313] transition hover:translate-x-px hover:translate-y-px hover:shadow-[2px_2px_0_#141313]"
+              >
+                ← Volver
+              </Link>
+              <EssayButton />
+            </div>
+            
             <DisplayText size="lg" className="max-w-xl">
               ¿Qué ves?
             </DisplayText>
