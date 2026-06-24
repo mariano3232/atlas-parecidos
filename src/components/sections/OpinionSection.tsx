@@ -58,7 +58,7 @@ export function OpinionSection({ variant }: OpinionSectionProps) {
               }}
             >
               <div
-                className={`overflow-hidden border w-xl h-[800px] border-ink ${classes.card}`}
+                className={`overflow-hidden border w-xl h-[820px] border-ink ${classes.card}`}
                 style={{ transform: `rotate(${opinion.rotation ?? 0}deg)` }}
               >
                 <img
@@ -67,13 +67,11 @@ export function OpinionSection({ variant }: OpinionSectionProps) {
                   className="w-full object-cover h-[600px]"
                 />
                 <div className="text-center bg-blue mt-6">
-                  <DisplayText size="md" uppercase={false} className="mb-4 w-[90%] mx-auto normal-case">
+                  <DisplayText size="md" uppercase={false} className="mb-4 w-[85%] mx-auto normal-case">
                     “{opinion.quote}”
                   </DisplayText>
-                </div>
-                <div className='w-[85%] mx-auto'>
-                  <p className="font-[CustomFont] text-3xl text-ink mx-auto ">-{opinion.author}</p>
-                </div>
+                </div>    
+                <p className="text-center font-[CustomFont] text-3xl text-ink mx-auto ">-{opinion.author}</p>
               </div>
             </motion.article>
           ))}

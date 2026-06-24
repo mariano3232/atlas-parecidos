@@ -16,7 +16,7 @@ const base = '/assets/images'
 export const imageSources: Record<string, string> = {
   // 'hero-twins': `${base}/hero-twins.jpeg`,
   'hero-twins': `${base}/main.png`,
-  'atlas-familiar': `${base}/atlas2.png`,
+  'atlas-familiar': `${base}/atlas3.png`,
   'parecidos': `${base}/parecidos.png`,
   'img-0518': `${base}/img-0518.jpeg`,
   'img-f11e8b4c': `${base}/img-f11e8b4c.jpeg`,
@@ -77,6 +77,12 @@ export const imageSources: Record<string, string> = {
   'Opinion4-1': `${base}/Opinion4-1.png`,
   'Opinion4-2': `${base}/Opinion4-2.png`,
   'Opinion4-3': `${base}/Opinion4-3.png`,
+  'Opinion5-1': `${base}/Opinion5-1.png`,
+  'Opinion5-2': `${base}/Opinion5-2.png`,
+  'Opinion5-3': `${base}/Opinion5-3.png`,
+  'Opinion6-1': `${base}/Opinion6-1.png`,
+  'Opinion6-2': `${base}/Opinion6-2.png`,
+  'Opinion6-3': `${base}/Opinion6-3.png`,
   '04': `${base}/04.jpg`,
   '05': `${base}/05.jpg`,
 }

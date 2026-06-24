@@ -79,6 +79,22 @@ export function AnimatedRoutes() {
               </PageTransition>
             }
           />
+          <Route
+            path="/opinion-5"
+            element={
+              <PageTransition>
+                <OpinionPage variant={5} />
+              </PageTransition>
+            }
+          />
+          <Route
+            path="/opinion-6"
+            element={
+              <PageTransition>
+                <OpinionPage variant={6} />
+              </PageTransition>
+            }
+          />
         </Routes>
       </AnimatePresence>
     </NavigationTransitionProvider>

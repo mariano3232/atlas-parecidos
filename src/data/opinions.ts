@@ -13,7 +13,7 @@ export type OpinionSet = {
   opinions: Opinion[]
 }
 
-export type OpinionVariant = 1 | 2 | 3 | 4
+export type OpinionVariant = 1 | 2 | 3 | 4 | 5 | 6
 
 export const opinionSets: Record<OpinionVariant, OpinionSet> = {
   1: {
@@ -21,15 +21,15 @@ export const opinionSets: Record<OpinionVariant, OpinionSet> = {
     opinions: [
       {
         id: 'opinion-1',
-        quote: 'Yo soy igual a mi madre, Pity se parece a la tía Nene',
-        author: 'Caro (tía), 56',
+        quote: 'Pity se parece a la tía Nene',
+        author: 'Caro (tía), 58',
         imageId: 'opinion-2',
         rotation: 2.6,
       },
       {
         id: 'opinion-2',
-        quote: 'Carolina se parece a mamá, yo a la tía Coca',
-        author: 'Pity (mamá), 55',
+        quote: 'Yo me parezco a la tía Coca',
+        author: 'Pity (mamá), 56',
         imageId: 'opinion-1',
         rotation: -2.9,
       },
@@ -99,7 +99,7 @@ export const opinionSets: Record<OpinionVariant, OpinionSet> = {
     opinions: [
       {
         id: 'opinion-1',
-        quote: 'Yo me parezco a mi mamá',
+        quote: 'Yo salí a los Destri',
         author: 'Tulo (tío), 53',
         imageId: 'Opinion4-1',
         rotation: -2.87,
@@ -113,9 +113,61 @@ export const opinionSets: Record<OpinionVariant, OpinionSet> = {
       },
       {
         id: 'opinion-3',
-        quote: 'Para mi, el Tulo se parece a Tulio',
+        quote: 'Para mi, el Tulo se parece a su abuela',
         author: 'Abuela Bety, 87',
         imageId: 'Opinion4-3',
+        rotation: -2.38,
+      },
+    ],
+  },
+  5: {
+    theme: 'red',
+    opinions: [
+      {
+        id: 'opinion-1',
+        quote: 'Carolina es Alza, salio a nosotros',
+        author: 'Bety (abuela), 87',
+        imageId: 'Opinion5-1',
+        rotation: -2.87,
+      },
+      {
+        id: 'opinion-2',
+        quote: 'Carolina se parece a mamá',
+        author: 'Pity (mamá), 56',
+        imageId: 'Opinion5-2',
+        rotation: 2.67,
+      },
+      {
+        id: 'opinion-3',
+        quote: 'Carolina tiene las manos de papá',
+        author: 'Tulo (tío), 53',
+        imageId: 'Opinion5-3',
+        rotation: -2.38,
+      },
+    ],
+  },
+  6: {
+    theme: 'blue',
+    opinions: [
+      {
+        id: 'opinion-1',
+        quote: 'Tenemos la boca parecida',
+        author: 'Joaquin (primo), 16',
+        imageId: 'Opinion6-1',
+        rotation: -2.87,
+      },
+      {
+        id: 'opinion-2',
+        quote: 'Malena sonrie como Tulio',
+        author: 'Ana (tía), 53',
+        imageId: 'Opinion6-2',
+        rotation: 2.67,
+      },
+      {
+        id: 'opinion-3',
+        quote: 'Joaquin es mas Alza, es alto, nosotros no',
+        author: 'Tulo (tío), 53',
+        imageId: 'Opinion6-3',
         rotation: -2.38,
       },
     ],
