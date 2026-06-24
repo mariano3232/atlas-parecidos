@@ -111,12 +111,12 @@ export function HeroSection() {
       
       <div
         ref={atlasRef}
-        className="relative flex h-full min-h-screen flex-col py-8 md:px-10"
+        className="relative flex h-full min-h-screen flex-col"
         style={{ perspective: '1200px' }}
       >
         
-        <ScrollContainer className="max-h-[750px] flex-1 overflow-x-auto overflow-y-auto hide-scrollbar">
-          <div className="z-10 sticky top-30 my-10 left-0 flex  justify-between">
+        <ScrollContainer className="max-h-[810px] flex-1 overflow-x-auto overflow-y-auto hide-scrollbar">
+          <div className="z-10 sticky top-30 my-10 left-0 flex mx-22  justify-between">
             <div className="mb-4 items-start justify-between gap-6">
               <DisplayText size="lg">Atlas Familiar</DisplayText>
               <ScrollHint hint="(↓⇆)" className="hidden md:block relative top-40" />

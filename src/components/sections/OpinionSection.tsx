@@ -34,7 +34,7 @@ export function OpinionSection({ variant }: OpinionSectionProps) {
         </motion.div>
 
         <motion.div
-          className="mx-auto flex max-w-3xl flex-col gap-24 pb-16"
+          className="mx-auto flex max-w-3xl flex-col gap-24 pb-16 pt-[200px]"
           initial="hidden"
           animate="visible"
           variants={{
@@ -47,7 +47,7 @@ export function OpinionSection({ variant }: OpinionSectionProps) {
           {opinions.map((opinion) => (
             <motion.article
               key={opinion.id}
-              className="flex flex-col items-center gap-8"
+              className="flex flex-col items-center gap-8 z-99"
               variants={{
                 hidden: { opacity: 0, y: 28 },
                 visible: {
