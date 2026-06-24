@@ -20,11 +20,13 @@ function matchesCombination(selectedPoints: number[], combination: number[]) {
 const opinionRoutes: { combination: number[]; path: string; color: string }[] = [
   { combination: [1, 3], path: '/opinion-1', color: '#dd4141' },
   { combination: [2, 3], path: '/opinion-2', color: '#d5e2e8' },
-  { combination: [1, 4], path: '/opinion-3', color: '#dd4141' },
-  { combination: [5, 8], path: '/opinion-4', color: '#d5e2e8' },
+  { combination: [1, 4], path: '/opinion-4', color: '#dd4141' },
+  { combination: [5, 8], path: '/opinion-3', color: '#d5e2e8' },
+  { combination: [5, 7], path: '/opinion-5', color: '#dd4141' },
+  { combination: [6, 8], path: '/opinion-6', color: '#d5e2e8' },
 ]
 
-const pointCombinations = [[1, 3], [2, 3], [1, 4], [5, 8], [6, 7], [8, 10], [9, 10]]
+const pointCombinations = [[1, 3], [2, 3], [1, 4], [5, 8], [5, 7], [6, 8]]
 const SUCCESS_DELAY_MS = 700
 const NAVIGATE_DELAY_MS = 1200
 
