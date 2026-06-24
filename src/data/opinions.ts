@@ -54,8 +54,8 @@ export const opinionSets: Record<OpinionVariant, OpinionSet> = {
       },
       {
         id: 'opinion-2',
-        quote: 'Malena se parece a la abuela Betty',
-        author: 'Caro (tía), 56',
+        quote: 'Malena se parece a su mamá de jovencita',
+        author: 'Nené (tía), 85',
         imageId: 'Opinion2-2',
         rotation: -2.9,
       },
